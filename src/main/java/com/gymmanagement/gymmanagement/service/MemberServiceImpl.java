@@ -20,4 +20,8 @@ public class MemberServiceImpl {
     public Member saveMember(Member member) {
         return memberRepository.save(member);
     }
+
+    public Member getAMember(int id) {
+        return memberRepository.findById(id).get();
+    }
 }

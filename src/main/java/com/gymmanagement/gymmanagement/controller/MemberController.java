@@ -4,10 +4,7 @@ import com.gymmanagement.gymmanagement.entity.Member;
 import com.gymmanagement.gymmanagement.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,5 +23,10 @@ public class MemberController {
     @PostMapping("/member")
     public ResponseEntity<Member> createMember(@RequestBody Member member){
         return ResponseEntity.ok(memberService.saveMember(member));
+    }
+
+    @GetMapping("member/{id}")
+    public ResponseEntity<Member> getMember(@PathVariable int id){
+        return ResponseEntity.ok(memberService.getAMember(id));
     }
 }
