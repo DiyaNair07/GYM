@@ -1,6 +1,7 @@
 package com.gymmanagement.gymmanagement.service;
 
 import com.gymmanagement.gymmanagement.entity.Member;
+import com.gymmanagement.gymmanagement.entity.Membership;
 import com.gymmanagement.gymmanagement.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,5 +24,11 @@ public class MemberServiceImpl {
 
     public Member getAMember(int id) {
         return memberRepository.findById(id).get();
+    }
+
+    public Member addMembership(int memberId, Membership membership) {
+        Member currentMember = memberRepository.findById(memberId).get();
+        currentMember.addMembership(membership);
+        return memberRepository.save(currentMember);
     }
 }

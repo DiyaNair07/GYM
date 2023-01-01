@@ -1,6 +1,7 @@
 package com.gymmanagement.gymmanagement.controller;
 
 import com.gymmanagement.gymmanagement.entity.Member;
+import com.gymmanagement.gymmanagement.entity.Membership;
 import com.gymmanagement.gymmanagement.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,4 +30,10 @@ public class MemberController {
     public ResponseEntity<Member> getMember(@PathVariable int id){
         return ResponseEntity.ok(memberService.getAMember(id));
     }
+
+    @PutMapping("/{memberId}/membership")
+    public ResponseEntity<Member> addMembership(@PathVariable int memberId,@RequestBody Membership membership){
+        return ResponseEntity.ok(memberService.addMembership(memberId,membership));
+    }
+
 }
