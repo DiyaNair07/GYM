@@ -19,7 +19,7 @@ public class Membership {
     @SequenceGenerator(name = "membership_sequence" , sequenceName = "membership_sequence" , allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "membership_sequence")
     private int membershipId;
-    private String type;
+    private String planId;
     private Date joinDate;
     private Date endDate;
     private String memPeriod;
