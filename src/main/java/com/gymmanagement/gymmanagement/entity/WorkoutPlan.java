@@ -21,4 +21,5 @@ public class WorkoutPlan {
     private String planType;
     private String plan;
     private int bmi;
+    private double wktFee;
 }
